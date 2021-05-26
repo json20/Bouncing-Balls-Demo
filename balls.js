@@ -14,6 +14,14 @@ function random(min, max) {
     return num;
 }
 
+function Shape(x, y, velX, velY, exists) {
+    this.x = x;
+    this.y = y;
+    this.velX = velX;
+    this.velY = velY;
+    this.exists = exists;
+}
+
 function Ball(x, y, velX, velY, color, size) {
     this.x = x;
     this.y = y;
@@ -56,8 +64,7 @@ Ball.prototype.collisionDetect = function() {
             const distance = Math.sqrt((dx * dx) + (dy * dy));
 
             if (distance < this.size + ballsArr[j].size) {
-                ballsArr[j].color = 'orange';
-                this.color = 'purple';
+                ballsArr[j].color = this.color = 'rgb(' + random(0, 255) + ',' + random(0, 255) + ',' + random(0, 255) +')';
             }
         }
     }
